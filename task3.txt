@@ -1,21 +1,19 @@
 import java.util.Scanner;
 
-public class LeapYear {
-    
-    static boolean isLeap(int year) {
-        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
-    }
-
+public class SplitSentence {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        
-        System.out.print("Enter year: ");
-        int year = sc.nextInt();
-        
-        if (isLeap(year)) {
-            System.out.println(year + " is a Leap Year");
-        } else {
-            System.out.println(year + " is not a Leap Year");
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter a sentence:");
+        String sentence = scanner.nextLine();
+
+        String[] words = sentence.split(" ");
+
+        System.out.println("Words in the sentence:");
+        for (String word : words) {
+            System.out.println(word);
         }
+
+        scanner.close();
     }
 }
