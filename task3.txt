@@ -1,26 +1,25 @@
-public class Calculator {
-
-    
-    public int sum(int a, int b) {
-        
-        return a + b;
-    }
-
-    
-    public double sum(double a, double b) {
-        
-        return a + b;
-    }
-
+public class Task3 {
     public static void main(String[] args) {
-        Calculator calc = new Calculator();
-         
-       
-        int intResult = calc.sum(10, 20);
-        System.out.println("Integer Sum: " + intResult);
+        HashMap<String, Integer> studentMarks = new HashMap<>();
 
         
-        double doubleResult = calc.sum(12.5, 7.5);
-        System.out.println("Double Sum: " + doubleResult);
+        studentMarks.put("Arun", 85);
+        studentMarks.put("Divya", 92);
+        studentMarks.put("Kiran", 78);
+
+        
+        int total = 0;
+        for (int marks : studentMarks.values()) {
+            total += marks;
+        }
+        double average = (double) total / studentMarks.size();
+
+        
+        System.out.println("Student Marks:");
+        for (Map.Entry<String, Integer> entry : studentMarks.entrySet()) {
+            System.out.println(entry.getKey() + " → " + entry.getValue());
+        }
+
+        System.out.println("Average Marks: " + average);
     }
 }
