@@ -1,50 +1,57 @@
+class Person {
+    String name;
+    int age;
 
-// count the vowels and consonant
-
-class Main {
-    public static void main(String[] args) {
-      String name="bavani";
-      int n=name.length();
-     int count=0;
-      for(int i=0;i<n;i++){
-   System.out.println(name.charAt(i));
-  if(name.charAt(i)=='a'|| name.charAt(i)=='e'|| name.charAt(i)=='i'|| name.charAt(i)=='o'|| name.charAt(i)=='u')
-    count++;
-   
-  }
-   System.out.println(" ");
-     System.out.println("the vowels is:"+count);
-      System.out.println(" ");
-       System.out.println("the consonant is:");
-   System.out.println(n-count);
-  
-} 
- 
-}
-
-//count concount(consonant count)
-
-String name="bai";
-      int n=name.length();
-     int count=0;
-     int concount=0;
-      for(int i=0;i<n;i++){
-   System.out.println(name.charAt(i));
-  if(name.charAt(i)=='a'|| name.charAt(i)=='e'|| name.charAt(i)=='i'|| name.charAt(i)=='o'|| name.charAt(i)=='u')
-    count++;
-    else if(name.charAt(i)<='a'&& name.charAt(i)<='z'){
-        concount++;
+    
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
     }
+
    
-  }
-  
-   System.out.println("");
-    System.out.println("the count is");
-  System.out.println(count);
-   System.out.println("");
-    System.out.println("the concount is");
-  System.out.println(concount);
-   }
+    public void displayPersonDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
 }
 
 
+class Employee extends Person {
+    int employeeId;
+    double basicPay, hra, da;
+
+   
+    public Employee(String name, int age, int employeeId, double basicPay, double hra, double da) {
+        super(name, age); // Call Person constructor
+        this.employeeId = employeeId;
+        this.basicPay = basicPay;
+        this.hra = hra;
+        this.da = da;
+    }
+
+    
+    public double calculateSalary() {
+        return basicPay + hra + da;
+    }
+
+    
+    public void displayEmployeeDetails() {
+        displayPersonDetails(); // Call method from Person
+        System.out.println("Employee ID: " + employeeId);
+        System.out.println("Basic Pay: ₹" + basicPay);
+        System.out.println("HRA: ₹" + hra);
+        System.out.println("DA: ₹" + da);
+        System.out.println("Total Salary: ₹" + calculateSalary());
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+       
+        Employee emp = new Employee("Bhavani", 28, 101, 30000, 5000, 4000);
+        
+        
+        emp.displayEmployeeDetails();
+    }
+}
